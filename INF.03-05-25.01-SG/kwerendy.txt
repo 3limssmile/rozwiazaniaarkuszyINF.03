@@ -1,0 +1,15 @@
+# Zapytanie 1: wybierające jedynie daty i tematy szkoleń posortowane rosnąco według daty szkolenia
+SELECT data, temat FROM szkolenia
+ORDER BY data ASC;
+
+# Zapytanie 2: wybierające jedynie daty i tematy szkoleń oraz odpowiadające im nazwiska i imiona trenerów. Należy posłużyć się relacją
+SELECT sz.data, sz.temat, t.nazwisko, t.imie FROM szkolenia sz
+JOIN trenerzy t ON t.id = sz.Id_trenera;
+
+# Zapytanie 3: wybierające dla każdego trenera jedynie jego imię i nazwisko oraz zliczające liczbę jego szkoleń. Należy posłużyć się relacją
+SELECT t.imie, t.nazwisko, COUNT(*) AS liczba_szkolen FROM trenerzy t
+JOIN szkolenia sz ON sz.Id_trenera = t.Id
+GROUP BY t.Id, t.imie, t.nazwisko;
+
+# Zapytanie 4: zmieniające w tabeli zapisy nazwę kolumny Id_klienta na Id_sluchacza
+ALTER TABLE `zapisy` CHANGE `Id_klienta` `Id_sluchacza` INT(11) NULL DEFAULT NULL;
