@@ -1,0 +1,15 @@
+# Zapytanie 1: wybierające jedynie pola: Rodzaj, Nazwa, Gramatura i Cena dla wyrobów z rodzaju „INNE”
+SELECT Rodzaj, Nazwa, Gramatura, Cena FROM wyroby
+WHERE Rodzaj = "INNE";
+
+# Zapytanie 2: wybierające jedynie posortowane malejąco rodzaje wyrobów. Rodzaje wyrobów nie mogą się powtarzać
+SELECT DISTINCT Rodzaj FROM wyroby
+ORDER BY Rodzaj DESC;
+
+# Zapytanie 3: wybierające jedynie pola: ID oraz Nazwa dla wyrobów, których nazwa zawiera słowo „Chałka”
+SELECT ID, Nazwa FROM wyroby
+WHERE Nazwa LIKE "%Chałka%";
+
+# Zapytanie 4: wybierające pole Rodzaj oraz obliczające średnią cenę dla każdej grupy wyrobów z kategorii Rodzaj, zaokrągloną do dwóch miejsc po przecinku. Obliczona średnia cena powinna mieć nadaną nazwę kolumny (alias) „Średnia cena”
+SELECT Rodzaj, ROUND(AVG(Cena), 2) AS "Średnia_cena" FROM wyroby
+GROUP BY Rodzaj;
