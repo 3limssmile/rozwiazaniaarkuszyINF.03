@@ -1,0 +1,13 @@
+# Zapytanie 1: wybierające jedynie kolor i materiał produktów, których wysokość buta jest większa niż 10
+SELECT kolor, material FROM produkt
+WHERE wysokosc_buta > 10;
+
+# Zapytanie 2: wybierające jedynie nazwę i cenę buta oraz odpowiadającą im nazwę kategorii. Należy posłużyć się relacją
+SELECT b.nazwa, b.cena, k.nazwa_kat FROM buty b
+JOIN kategorie k ON k.id_kat = b.id_kat;
+
+# Zapytanie 3: tworzące konto użytkownika Marek na localhost z hasłem M@reK
+CREATE USER 'Marek'@'localhost' IDENTIFIED BY 'M@reK';
+
+# Zapytanie 4: nadające kontu Marek prawa jedynie do przeglądania i aktualizacji danych jedynie w bazie danych obuwie, w tabeli produkt
+GRANT SELECT, UPDATE ON obuwie.produkt TO 'Marek'@'localhost';
