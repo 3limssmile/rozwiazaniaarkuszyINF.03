@@ -1,0 +1,17 @@
+# Zapytanie 1: zliczające liczbę klientów mieszalni farb
+SELECT COUNT(*) FROM klienci;
+
+# Zapytanie 2: wybierające jedynie nazwiska, imiona klientów oraz odpowiadające im numery zamówień (pole id), kody kolorów, pojemności i daty odbioru zamówień posortowane rosnąco po dacie odbioru. Należy posłużyć się relacją
+SELECT k.nazwisko, k.imie, z.id, z.kod_koloru, z.pojemnosc, z.data_odbioru FROM klienci k
+JOIN zamowienia z ON z.id_klienta = k.id
+ORDER BY z.data_odbioru ASC;
+
+# Zapytanie 3: wybierające jedynie nazwiska, imiona klientów oraz odpowiadające im numery zamówień (pole id), kody kolorów, pojemności i daty odbioru zamówień posortowane rosnąco po dacie odbioru, jedynie dla zamówień, w których data odbioru jest od 5 listopada do 7 listopada 2021 roku. Należy posłużyć się relacją
+SELECT k.nazwisko, k.imie, z.id, z.kod_koloru, z.pojemnosc, z.data_odbioru FROM klienci k
+JOIN zamowienia z ON z.id_klienta = k.id
+WHERE z.data_odbioru >= "2021-11-05" AND z.data_odbioru <= "2021-11-07"
+ORDER BY z.data_odbioru ASC;
+
+# Zapytanie 4: wybierające jedynie imiona i nazwiska kobiet, które są klientami mieszalni farb
+SELECT imie, nazwisko FROM klienci
+WHERE plec = "k";
