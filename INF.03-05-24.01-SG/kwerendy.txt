@@ -1,0 +1,8 @@
+# Zapytanie 1: wybierające jedynie pola nazwa i cena z tabeli uslugi dla usług, których cena jest wyższa lub równa 50 zł
+SELECT nazwa, cena FROM uslugi WHERE cena >= 50;
+# Zapytanie 2: liczące średnią arytmetyczną cen usług oraz liczbę usług jedynie dla usług kosmetycznych
+SELECT AVG(cena), COUNT(*) FROM uslugi WHERE rodzaj = 1;
+# Zapytanie 3: tworzące użytkownika kosmetyczka na localhost z hasłem Kosmet34
+CREATE USER 'kosmetyczka'@'localhost' IDENTIFIED BY 'Kosmet34';
+# Zapytanie 4: nadające prawa przeglądania danych i aktualizacji do tabeli uslugi bazy salon dla użytkownika kosmetyczka
+GRANT SELECT, UPDATE ON uslugi TO 'kosmetyczka'@'localhost';
