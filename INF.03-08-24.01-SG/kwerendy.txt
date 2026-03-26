@@ -1,0 +1,8 @@
+# Zapytanie 1: wybierające jedynie pola imie, nazwisko, stanowisko z tabeli kadra dla pracowników na stanowisku fryzjer albo stylista
+SELECT imie, nazwisko, stanowisko FROM kadra WHERE stanowisko = 'fryzjer' OR stanowisko = 'stylista';
+# Zapytanie 2: liczące liczbę usług fryzjerskich oraz wskazujące najwyższą cenę usług fryzjerskich
+SELECT COUNT(*), MAX(cena) FROM uslugi WHERE rodzaj = 2;
+# Zapytanie 3: wybierające nazwy usług oraz przypisane do nich imiona osób z tabeli kadra dla rodzaju usług: fryzjerskie albo inne, należy posłużyć się relacją
+SELECT nazwa, imie FROM uslugi JOIN kadra ON kadra_id = kadra.id WHERE rodzaj > 1;
+# Zapytanie 4: dodające kolumnę do tabeli uslugi o nazwie opinia typu napisowego
+ALTER TABLE uslugi ADD opinia TEXT;
